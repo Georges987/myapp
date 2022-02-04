@@ -29,10 +29,10 @@
     >
       <v-list>
         <v-list-item class="align-center justify-center">
-          <v-menu bottom min-width="200px" rounded offset-x color="brown">
+          <v-menu bottom min-width="200px" rounded offset-x color="purple">
             <template v-slot:activator="{ on }">
-              <v-btn color="brown" icon x-large v-on="on">
-                <v-avatar color="brown" size="40">
+              <v-btn color="purple" icon x-large v-on="on">
+                <v-avatar color="purple" size="40">
                   <span class="white--text text-h6">{{ user.initials }}</span>
                 </v-avatar>
               </v-btn>
@@ -40,7 +40,7 @@
             <v-card>
               <v-list-item-content class="justify-center">
                 <div class="mx-auto text-center">
-                  <v-avatar color="brown">
+                  <v-avatar color="purple">
                     <span class="white--text text-h5">{{ user.initials }}</span>
                   </v-avatar>
                   <h3>{{ user.fullName }}</h3>
@@ -57,8 +57,8 @@
           </v-menu>
         </v-list-item>
         <v-divider class="my-3"></v-divider>
-        <div >
-        <v-list-item class="align-center justify-center">
+        <div>
+        <v-list-item v-for="link in links" :key="link.content" class="align-center justify-center">
           <v-icon large left>dashboard</v-icon>
           <v-list-content>
             <span>Hello world</span>
@@ -79,14 +79,18 @@ export default {
 
       user: {
         initials: "JD",
+        name: "jhdoe7",
         fullName: "John Doe",
         email: "john.doe@doe.com",
       },
       links: [
         {content: "Home", icon: "home", road: "/home"},
-        {content: "Friends", icon: "multiple-avatar", road: "/home"},
-        
-        ],
+        {content: "My profile", icon: "profile", road: "/"+this.user.name},
+        {content: "Friends", icon: "people", road: "/friends"},
+        {content: "Message", icon: "message", road: "/message"},
+        {content: "My Board", icon: "dashboard", road: "/dashboard"},
+        {content: "Settings", icon: "settings", road: "/settings"}
+      ],
       methods: {
         logout() {},
       },
