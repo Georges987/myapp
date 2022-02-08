@@ -16,7 +16,6 @@
         Logout
       </v-btn>
     </v-app-bar>
-    <v-tab></v-tab>
     <!-- separted from my model of drawer -->
     <v-navigation-drawer
       app
@@ -56,18 +55,32 @@
             </v-card>
           </v-menu>
         </v-list-item>
-        <v-divider class="my-3"></v-divider>
-        <div>
-        <v-list-item v-for="link in links" :key="link.content" class="align-center justify-center">
-          <v-icon large left>dashboard</v-icon>
-          <v-list-content>
-            <span>Hello world</span>
-          </v-list-content>
-        </v-list-item>
-        <v-divider class="my-3"></v-divider>
+        <v-divider></v-divider>
+        <div v-for="link in links" :key="link.content">
+          <v-list-item router :to="link.road" class="align-center justify-center">
+            <v-icon large left>{{ link.icon }}</v-icon>
+            <v-list-content>
+              <span>{{ link.content }}</span>
+            </v-list-content>
+          </v-list-item>
+          <v-divider></v-divider>
         </div>
       </v-list>
     </v-navigation-drawer>
+
+    <!-- Tutora -->
+
+    <template>
+      <v-footer padless app clipped-left depressed>
+        <v-card tile width="100%" dark class="text-center">
+          <v-divider></v-divider>
+          <v-card-text class="white--text font-weight-bold">
+            {{ new Date().getFullYear() }} — Made by
+            <v-icon color="red">favorite</v-icon> whith vuetify
+          </v-card-text>
+        </v-card>
+      </v-footer>
+    </template>
   </div>
 </template>
 <script>
@@ -75,21 +88,20 @@ export default {
   data() {
     return {
       sidebar: true,
-      hover: false,
 
       user: {
-        initials: "JD",
-        name: "jhdoe7",
-        fullName: "John Doe",
-        email: "john.doe@doe.com",
+        initials: "GA",
+        name: "Georges7",
+        fullName: "Georges Ayeni",
+        email: "ayenigeorgepierre@gmail.com",
       },
       links: [
-        {content: "Home", icon: "home", road: "/home"},
-        {content: "My profile", icon: "profile", road: "/"+this.user.name},
-        {content: "Friends", icon: "people", road: "/friends"},
-        {content: "Message", icon: "message", road: "/message"},
-        {content: "My Board", icon: "dashboard", road: "/dashboard"},
-        {content: "Settings", icon: "settings", road: "/settings"}
+        { content: "Home", icon: "home", road: "/home" },
+        { content: "My profile", icon: "person", road: "/my-profile" },
+        { content: "Friends", icon: "people", road: "/friends" },
+        { content: "Message", icon: "message", road: "/message" },
+        { content: "My Board", icon: "dashboard", road: "/dashboard" },
+        { content: "Settings", icon: "settings", road: "/settings" },
       ],
       methods: {
         logout() {},
