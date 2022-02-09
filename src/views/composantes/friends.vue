@@ -5,7 +5,7 @@
                 <v-col cols="12" sm="12" md="4" v-for="friend in friends" :key="friend.name">
                     <v-card dark class="text-center" max-width="300px">
                         <v-avatar size="125">
-                            <v-img src="friend.url" alt="friends pics"> </v-img>
+                            <v-img :src="friend.url" alt="friends pics"> </v-img>
                         </v-avatar>
                         <v-card-title class="display-1">
                             {{ friend.name }}

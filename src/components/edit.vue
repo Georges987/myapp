@@ -16,7 +16,7 @@
         </v-btn>
       </template>
       <v-card>
-        <v-toolbar dark>
+        <v-toolbar dark app>
           <v-btn icon dark @click="dialog = false">
             <v-icon>close</v-icon>
           </v-btn>

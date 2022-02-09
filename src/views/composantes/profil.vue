@@ -4,33 +4,19 @@
       <v-row>
         <v-col>
           <v-card dark class="pa-5">
-            <v-card-title class="grey--text display-5 align-center justify-center">
+            <v-card-title class="grey--text display-5 align-center justify-center bg">
               Your personals informations
             </v-card-title>
+            <div>
             <v-row>
-              <v-col class="pt-3 pl-15 mb-10">
+              <v-col class="pt-10 mt-15 pl-15 mb-10">
                 <v-avatar size="300">
-                  <img src="/favicon.ico" />
+                  <img src="/my.jpg" />
                 </v-avatar>
-              </v-col>
-              <v-col class="pt-16">
-                <v-card-content class="grey--text">
-                  <p class="red--text">
-                    <span class="font-weight-bold">Your name</span>: {{ user.name }}<br />
-                    <span class="font-weight-bold">Date of birth</span>: {{ user.date }}
-                    <br />
-                    <span class="font-weight-bold">Gender</span>: {{ user.gender }} <br />
-                    <span class="font-weight-bold">Location</span>: {{ user.location }}
-                    <br />
-                    <span class="font-weight-bold">Age</span>: {{ user.age }} ans<br />
-                    <span class="font-weight-bold">Phone number</span>: {{ user.phone }}
-                    <br />
-                    <span class="font-weight-bold">Mail address</span>: {{ user.mail }}
-                    <br />
-                  </p>
-                </v-card-content>
+                <v-card-subtitle class="text-right grey--text display-2">Your name</v-card-subtitle>
               </v-col>
             </v-row>
+            </div>
             <v-row>
               <v-card-action class="pa-5">
                 <edit />
@@ -53,8 +39,8 @@
           </v-card>
         </v-col>
       </v-row>
-      <v-row class="mb-10">
-        <v-card min-width="100%" dark class="pa-5">
+      <v-row class="mb-10 mt-7">
+        <v-card width="100%" dark>
           <v-carousel
             hide-delimiters
             cycle
@@ -83,26 +69,16 @@ export default {
   data() {
     return {
       newUser: "",
-
-      user: {
-        name: "Georges Ayeni",
-        date: "18/01/2003",
-        gender: "Male",
-        location: "Cotonou",
-        age: 19,
-        phone: "+229 63744999",
-        mail: "ayenigeorgepierre@gmail.com",
-      },
       cards: [
-        { title: "Biographie", icon: "person", content: "My name Georges Ayeni" },
-        { title: "E Skills", icon: "skill", content: "I'm scientific don't be affraid" },
+        { title: "Biographie", icon: "person", content: "My bio" },
+        { title: "E Skills", icon: "skill", content: "my skills" },
         { title: "Other", icon: "star-outlined", content: "Hey Hey" },
       ],
       items: [
-        { url: "/avatar.jpg" },
-        { url: "/favicon.ico" },
-        { url: "/avatar.jpg" },
-        { url: "/favicon.png" },
+        { url: "/dot.jpeg" },
+        { url: "/landing.jpg" },
+        { url: "/large.png" },
+        { url: "/vbanner.jpg" },
       ],
     };
   },
@@ -113,3 +89,15 @@ export default {
   },
 };
 </script>
+<style lang="css">
+  .bg {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url( 'https://cdn.pixabay.com/photo/2016/03/26/13/09/organic-1280537_1280.jpg') no-repeat center center;
+    background-size: cover;
+    background-color: red;
+  }
+</style>

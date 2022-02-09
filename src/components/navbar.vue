@@ -10,6 +10,7 @@
         depressed
         class="white--text text-capitalize"
         :ripple="{ class: 'red--text' }"
+        router to="/"
         @click="logout()"
       >
         <v-icon left>exit_to_app</v-icon>
@@ -47,9 +48,12 @@
                     {{ user.email }}
                   </p>
                   <v-divider class="my-3"></v-divider>
-                  <v-btn depressed rounded text> Edit Account </v-btn>
+                  <v-btn depressed rounded text> <edit /> </v-btn>
                   <v-divider class="my-3"></v-divider>
-                  <v-btn depressed rounded text> Disconnect </v-btn>
+                  <v-btn depressed dark rounded class="grey--text text-lowercase"> 
+                    <v-icon small left>exit_to_app</v-icon>
+                    Disconnect 
+                  </v-btn>
                 </div>
               </v-list-item-content>
             </v-card>
@@ -84,23 +88,24 @@
   </div>
 </template>
 <script>
+import edit from '@/components/edit';
 export default {
+  components: { edit },
   data() {
     return {
       sidebar: true,
 
       user: {
-        initials: "GA",
-        name: "Georges7",
-        fullName: "Georges Ayeni",
-        email: "ayenigeorgepierre@gmail.com",
+        initials: "I",
+        name: "username",
+        fullName: "userFullName",
+        email: "usermail@x.com",
       },
       links: [
-        { content: "Home", icon: "home", road: "/home" },
+        { content: "My Board", icon: "dashboard", road: "/dashboard" },
         { content: "My profile", icon: "person", road: "/my-profile" },
         { content: "Friends", icon: "people", road: "/friends" },
         { content: "Message", icon: "message", road: "/message" },
-        { content: "My Board", icon: "dashboard", road: "/dashboard" },
         { content: "Settings", icon: "settings", road: "/settings" },
       ],
       methods: {
