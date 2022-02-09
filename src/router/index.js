@@ -6,6 +6,7 @@ import Friends from '../views/composantes/friends.vue'
 import Message from '../views/composantes/message.vue'
 import Dashboard from '../views/composantes/dashboard.vue'
 import Settings from '../views/composantes/settings.vue'
+import Sign from '@/components/sign.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/',
+    name: 'Sign',
+    component: Sign
   },
   {
     path: '/my-profile',
@@ -47,5 +53,6 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
 
 export default router

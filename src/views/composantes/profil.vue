@@ -16,14 +16,17 @@
               <v-col class="pt-16">
                 <v-card-content class="grey--text">
                   <p class="red--text">
-                    <span class="font-weight-bold">Your name</span>: Georges Ayeni<br />
-                    <span class="font-weight-bold">Date of birth</span>: 18/01/2003<br />
-                    <span class="font-weight-bold">Gender</span>: Male<br />
-                    <span class="font-weight-bold">Location</span>: Cotonou<br />
-                    <span class="font-weight-bold">Age</span>: 19 ans<br />
-                    <span class="font-weight-bold">Phone number</span>: +229 63744999<br />
-                    <span class="font-weight-bold">Mail address</span>:
-                    ayenigeorgepierre@gmail.com<br />
+                    <span class="font-weight-bold">Your name</span>: {{ user.name }}<br />
+                    <span class="font-weight-bold">Date of birth</span>: {{ user.date }}
+                    <br />
+                    <span class="font-weight-bold">Gender</span>: {{ user.gender }} <br />
+                    <span class="font-weight-bold">Location</span>: {{ user.location }}
+                    <br />
+                    <span class="font-weight-bold">Age</span>: {{ user.age }} ans<br />
+                    <span class="font-weight-bold">Phone number</span>: {{ user.phone }}
+                    <br />
+                    <span class="font-weight-bold">Mail address</span>: {{ user.mail }}
+                    <br />
                   </p>
                 </v-card-content>
               </v-col>
@@ -51,15 +54,22 @@
         </v-col>
       </v-row>
       <v-row class="mb-10">
-      <v-card  min-width="100%" dark class="pa-5">
-        <v-carousel hide-delimiters cycle show-arrows-on-hover hide-overlay height="350px" width="100%">
-          <v-carousel-item
-            v-for="(item, i) in items"
-            :key="i"
-            :src="item.url"
-          ></v-carousel-item>
-        </v-carousel>
-      </v-card>
+        <v-card min-width="100%" dark class="pa-5">
+          <v-carousel
+            hide-delimiters
+            cycle
+            show-arrows-on-hover
+            hide-overlay
+            height="350px"
+            width="100%"
+          >
+            <v-carousel-item
+              v-for="(item, i) in items"
+              :key="i"
+              :src="item.url"
+            ></v-carousel-item>
+          </v-carousel>
+        </v-card>
       </v-row>
     </v-container>
   </div>
@@ -72,13 +82,15 @@ export default {
 
   data() {
     return {
-      user:{
+      newUser: "",
+
+      user: {
         name: "Georges Ayeni",
         date: "18/01/2003",
         gender: "Male",
         location: "Cotonou",
         age: 19,
-        phone: "229 63744999",
+        phone: "+229 63744999",
         mail: "ayenigeorgepierre@gmail.com",
       },
       cards: [
@@ -93,6 +105,11 @@ export default {
         { url: "/favicon.png" },
       ],
     };
+  },
+  methods: {
+    setInfo() {
+      this.user.name = this.$refs.name.textContent
+    },
   },
 };
 </script>

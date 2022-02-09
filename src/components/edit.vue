@@ -23,65 +23,70 @@
           <v-toolbar-title>Edit</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
-            <v-btn dark text @click="setInfo()"> Save </v-btn>
+            <v-btn dark text @click="setInfo()" @keyup.enter="setInfo()"> Save </v-btn>
           </v-toolbar-items>
         </v-toolbar>
         <v-container>
-                <v-card>
-                  <v-card-title>
-                    <span class="text-h5">User Profile</span>
-                  </v-card-title>
-                  <v-card-text>
-                    <v-container>
-                      <v-row>
-                        <v-col cols="12" sm="6" md="4">
-                          <v-text-field label="New First name*" required></v-text-field>
-                        </v-col>
-                        <v-col cols="12" sm="6" md="4">
-                          <v-text-field
-                            label="New Last name*"
-                            hint="write just the name without space"
-                          ></v-text-field>
-                        </v-col>
-                        <v-col cols="12">
-                          <v-text-field label="Email*" required></v-text-field>
-                        </v-col>
-                        <v-col cols="12">
-                          <v-text-field
-                            label="Password*"
-                            type="password"
-                            required
-                          ></v-text-field>
-                        </v-col>
-                        <v-col cols="12" sm="6">
-                          <v-select
-                            :items="[10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]"
-                            label="Age*"
-                            required
-                          ></v-select>
-                        </v-col>
-                        <v-col cols="12" sm="6">
-                          <v-autocomplete
-                            :items="[
-                              'Reading',
-                              'Sport',
-                              'Music',
-                              'Art',
-                              'Coding',
-                              'Hacking',
-                              'Writting',
-                              'Cinema',
-                              'mangas',
-                            ]"
-                            label="Your interests"
-                            multiple
-                          ></v-autocomplete>
-                        </v-col>
-                      </v-row>
-                    </v-container>
-                    <small>*indicates required field</small>
-                  </v-card-text>
-                </v-card>
+          <v-card>
+            <v-card-title>
+              <span class="text-h5">User Profile</span>
+            </v-card-title>
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field ref="name" label=" Your name*" required></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field ref="mail" label="Email*" required></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      ref="pass"
+                      label="Password*"
+                      type="password"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      ref="age"
+                      label="Age*"
+                      type="number"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      ref="date"
+                      label="birthdate*"
+                      type="date"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col cols="12">
+                    <v-text-field
+                      ref="gender"
+                      label="Gender*"
+                      type="text"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      ref="location"
+                      label="location*"
+                      type="text"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+              </v-container>
+              <small>*indicates required field</small>
+            </v-card-text>
+          </v-card>
         </v-container>
       </v-card>
     </v-dialog>
@@ -92,10 +97,12 @@ export default {
   data() {
     return {
       dialog: false,
-      notifications: false,
-      sound: true,
-      widgets: false,
     };
   },
+  methods: {
+    setInfo() {
+      this.dialog = false
+    }
+  }
 };
 </script>
